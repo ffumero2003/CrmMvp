@@ -58,22 +58,15 @@ function GestionContactos(){
     }
   ]
   return(
-    <div className='h-screen flex gap-2  p-3 '>
-  
-      <div className='w-1/6 h-full'>
-        <LeftPannel />
+    <div className="h-full w-full">
+      <div className="flex w-full justify-between">
+        <Header title="Contacts"/>
       </div>
-      
-      <div className='w-5/6 h-full'>
-          <div className='flex w-full justify-between'>
-            <Header title="Contacts"/>
-          </div>
-          <Titulo />
-          <Updates stats={stats}/>
-          <Botones />
-          <div className="flex w-full p-3 gap-6 ">
-            <Card array={personas} /> 
-          </div>
+      <Titulo />
+      <Updates stats={stats}/>
+      <Botones />
+      <div className="flex w-full p-3 gap-6 flex-wrap">
+        <Card array={personas} /> 
       </div>
     </div>
   )

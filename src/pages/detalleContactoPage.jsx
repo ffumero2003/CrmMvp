@@ -53,37 +53,24 @@ function DetalleContactoPage(){
 
 
   return(
-    <div className="h-screen flex gap-2  p-3">
+    <div className="h-full w-full p-3 flex flex-col">
+      <HeaderContacto />
+      <div className="flex flex-col lg:flex-row gap-3 mt-4">
+        <div className="w-full lg:w-1/3">
+          <Usuario nombre={persona.nombre} posicion={persona.posicion} inicial={persona.bgLetra} label={persona.label}/>
+          <InfoUsuario icono={faBuilding} texto="Empresa" nombre={persona.compania || "-"} />
+          <InfoUsuario icono={faEnvelope} texto="Email" nombre={persona.email || "-"} />
+          <InfoUsuario icono={faPhone} texto="Telefono" nombre={persona.phone || "-"} />
+          <InfoUsuario icono={faLocationDot} texto="Direccion" nombre={persona.ubicacion || "-"} />
+          <InfoUsuario icono={faCalendar} texto="Ultimo Contacto" nombre={persona.ultimoContacto || "-"} />
+          <Etiquetas items={etiquetas} />
+          <NotasRapidas />
+        </div>
 
-      <div className="w-1/6 h-full">
-        <LeftPannel />
+        <div className="w-full lg:w-2/3">
+          <HistorialActividades arr={info}/> 
+        </div>
       </div>
-      <div className="w-5/6 h-full">
-          <div className="h-full w-full flex flex-col p-3">
-          <HeaderContacto />
-        <div className='flex gap-3'>
-          <div className='w-2/6 h-full '>
-
-            <Usuario nombre={persona.nombre} posicion={persona.posicion} inicial={persona.bgLetra} label={persona.label}/>
-
-            <InfoUsuario icono={faBuilding} texto="Empresa" nombre={persona.compania || "-"} />
-            <InfoUsuario icono={faEnvelope} texto="Email" nombre={persona.email || "-"} />
-            <InfoUsuario icono={faPhone} texto="Telefono" nombre={persona.phone || "-"} />
-            <InfoUsuario icono={faLocationDot} texto="Direccion" nombre={persona.ubicacion || "-"} />
-            <InfoUsuario icono={faCalendar} texto="Ultimo Contacto" nombre={persona.ultimoContacto || "-"} />
-
-            <Etiquetas items={etiquetas} />
-            <NotasRapidas />
-          </div>
-
-          <div className='w-4/6 h-full '>
-            <HistorialActividades arr={info}/> 
-          </div>
-
-        </div>
-
-        </div>
-      </div>   
     </div>
   )
 }
